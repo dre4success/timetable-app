@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	#stream
+		form.form.card(action="/register" method="POST")
+			h2 Register
+			label(for="name") Name
+			input(type="text" name="name")
+			label(for="email") Email
+			input(type="email" name="email")
+			label(for="password") Password
+			input(type="password" name="password")
+			label(for="password-confirm") Confirm Password
+			input(type="password" name="password-confirm")
+			label()
+			input(type="submit" value="Register")

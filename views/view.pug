@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	#stream
+		table#tab
+			thead
+				tr
+					th
+					each day in daytime
+						th #{day._id} 
+					
+			tbody
+				each tim in daytime
+					tr
+						td #{tim.time[1]}
+						

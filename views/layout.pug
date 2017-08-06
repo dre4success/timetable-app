@@ -1,29 +1,42 @@
 doctype html
 html
   head
-    title TEST
+    title= `${title}`
     link(rel='stylesheet', type='text/css', href='styles/styles.css')
   body
     section
       .mast
         h1
-          | T
-          span SSB
+          a(href="/")
+            | Dash
+            span Board
+
         nav
           ul.clearfix
             li
-              a.selected(href='#') add posts
+              a(href='/add') add course
             li
-              a(href='#') view posts
-            li
-              a(href='#') logout
+              a(href='/view') view course
+            if user
+              li
+                a(href='/logout') logout
+            else
+              li
+                a(href='/register') Register
+              li
+                a(href='/login') Login
+
+    block messages
+      if locals.flashes
+        .inner
+          .flash-messages
+            - const categories = Object.keys(locals.flashes)
+            each category in categories
+              each message in flashes[category]
+                .flash(class=`flash--${category}`)
+                  p.flash__text!= message
+                  button.flash__remove(onClick="this.parentElement.remove()") &times;
+           
     .wrapper
       block content
         
-     
-                
-      
-    section.foot
-      div
-        p
-          | © 2016;
