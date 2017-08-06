@@ -2,9 +2,14 @@
 	margin: 0;
 	padding: 0;
 }
+html {
+  font-size: 10px; }
 
 body {
-	font-family: "Verdana";
+	font-family: "Panama";
+	 font-size: 1.5rem;
+  color: #303030;
+
 }
 a { text-decoration: none; }
 
@@ -14,9 +19,15 @@ a { text-decoration: none; }
   clear: both;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-size: 5rem;
+  font-family: 'Panama';
+  font-weight: 600;
+  letter-spacing: -1px; }
+
 section {
-	height: 120px;
-	background-color: #16193b;
+	height: 100px;
+	background-color: #3f6fb6;
 }
 
 .mast {
@@ -26,7 +37,7 @@ section {
 }
 
 .mast h1 {
-	font-family: "Tahoma";
+	font-family: "Panama";
 	padding-top: 5px;
 	font-size: 40px;
 	letter-spacing: -3px;
@@ -41,7 +52,7 @@ section {
 	width: 1000px;
 	list-style-type: none;
 	/*outline: 1px solid #000;*/
-	margin-top: 40px;
+	margin-top: 20px;
 }
 
 .mast nav ul li {
@@ -50,7 +61,8 @@ section {
 }
 
 .mast nav ul li a {
-	font-family: "Arial";
+	font-family: "Georgia";
+  font-size:140%;
 	display: block;
 	font-weight: bolder;
 	padding: 5px 10px 0 10px;
@@ -70,22 +82,46 @@ section {
 	right: 0;
 	bottom: 10px;
 }
+input, textarea {
+  width:50%;
+  padding:10px;
+  border: 1px solid $grey;
+  &.input {
+    &--error {
+      border-color: red;
+    }
+  }
+}
+select {
+ font-family: sans-serif;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */ }
 
-#search input[type="text"] {
-	font-family: "Verdana";
-	background-color: #fff;
-	border: 1px solid #fff;
-	padding: 2px 2px;
+label {
+  padding: 10px 0;
+  display: block;
 }
 
-#search input[type="submit"] {
-	font-family: "Verdana";
-	border: 1px solid #add5f7;
-	background-color: #add5f7;
-	color: #fff;
-	text-transform: capitalize;
-	padding: 0 4px;
+.form {
+  background: white;
+  padding: 2rem;
+  box-shadow: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%); }
+  .form + .form {
+    margin-top: 4rem; }
+  .form h2 {
+    margin: 0;
+    font-size: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e6e6e6; 
 }
+
+
 
 .wrapper {
 	width: 960px;
@@ -124,21 +160,7 @@ section {
 	text-align: center;
 }
 
-#situation textarea {
-	width: 100%;
-	height: 55px;
-	padding: 4px;
-	border: 1px solid #ccc;
-}
 
-#register textarea {
-	width: 60%;
-	border: 1px solid #ccc;
-}
-
-#register textarea.post-box {
-	height: 300px;
-}
 
 #stream {
 	width: 850px;
@@ -154,103 +176,7 @@ section {
 	padding-bottom: 20px;
 }
 
-.post {
-	position: relative;
-	width: 500px;
-	float: left;
-	margin-left: 20px;
-	border-bottom: 1px solid #ccc;
-	padding-bottom: 8px;
-}
 
-.post a.fullname {
-	display: block;
-	font-size: 14px;
-	color: #333;
-}
-
-.fam {
-	background-color: #bff6ed;
-}
-
-.post a.username {
-	display: block;
-	font-size: 12px;
-	color: #16a08a;
-	font-weight: bolder;
-	padding-bottom: 8px;
-}
-
-.post p.message {
-	font-size: 13px;
-	color: #333;
-}
-
-.post .date {
-	text-transform: capitalize;
-	display: block;
-	padding-top: 8px;
-	color: #333;
-	font-size: 13px;
-}
-
-
-
-
-
-#login-label,
-#register-label {
-	font-weight: lighter;
-	color: #333;
-	font-size: 48px;
-	padding: 10px;
-	margin-bottom: 10px;
-}
-
-form#login,
-form#register {
-	position: relative;
-	font-family: "Tahoma";
-	margin-top: 30px;
-}
-
-form#login div,
-form#register div {
-	position: relative;
-	margin-bottom: 20px;
-}
-
-form#login label,
-form#register label {
-	font-weight: bolder;
-	color: #333;
-	text-transform: capitalize;
-	width: 100px;
-	display: inline-block;
-}
-
-form#login input[type="text"],
-form#register input[type="text"],
-form#login input[type="password"],
-form#register input[type="password"]  {
-	border-radius: 2px;
-	border: 1px solid #ccc;
-	padding: 8px;
-	width: 300px;
-}
-
-form#login input[type="submit"],
-form#register input[type="submit"] {
-	padding: 4px;
-	width: 100px;
-	color: #fff;
-	border:none;
-	font-size: 16px;
-	text-transform: capitalize;
-	font-weight: bold;
-	margin: 20px 0 0 105px;
-	background-color: #16193b;
-}
 
 .jumpto {
 	font-weight: lighter;
@@ -279,7 +205,7 @@ table#tab td {
 	font-size: 12px;
 	padding: 10px;
 	border-bottom: 1px solid #ccc;
-	border-right: 1px solid #ccc;
+
 }
 
 table#tab td a {
@@ -302,28 +228,101 @@ table#tab td a:hover {
  	width: 500px;
  }  */
 
+.tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 2rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
 
-.foot {
-	position: fixed;
-	width: 100%;
-	bottom: 0;
-	height: 30px;
-}
+.tag {
+  display: block;
+  margin-right: 1rem; }
+  .tag__choice {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center; }
+    .tag__choice input {
+      width: auto;
+      right: -1.5rem;
+      margin-right: -1rem;
+      position: relative;
+      z-index: 2; }
+      .tag__choice input + label {
+        background: #e6e6e6;
+        padding: 1rem 1rem 1rem 4rem;
+        margin-bottom: 1rem }
+      .tag__choice input:checked + label {
+        background: cyan; }
 
-.foot div {
-	width: 960px;
-	padding-top: 4px;
-	color: white;
-	margin: 0 auto 0 auto;
-}
+  .card {
+  background: white;
+  padding: 5rem;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.15); }
 
-
-.err {
+/* .err {
 	position: absolute;
 	top: -14px;
 	font-size: 12px;
 	left: 105px;
 	color:red;
 }
+ */
+ .flash {
+  background: white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2rem;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+  border-radius: 3px;
+  display: -ms-flexbox;
+  display: flex;
+  animation: slideIn forwards .1s ease-in-out 2;
+  animation-timing-function: cubic-bezier(0.01, 1.68, 0.58, 1); }
+  .flash + .flash {
+    animation-delay: 0.55s; }
+    .flash + .flash + .flash {
+      animation-delay: 0.6s; }
+  .flash__text {
+    -ms-flex: 1;
+        flex: 1; }
+  .flash__remove {
+    background: none;
+    border: 0; }
+    .flash__remove:hover {
+      color: #FFC40E; }
+  .flash:after {
+    content: '';
+    display: block;
+    background: white;
+    position: absolute;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    top: 8px;
+    left: 8px;
+    z-index: -1;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 3px; }
+  .flash--success {
+    background: linear-gradient(135deg, #d2ff52 0%, #91e842 100%); }
+  .flash--error {
+    background: linear-gradient(20deg, red 0%, #c80000 100%); }
+  .flash--info {
+    background: linear-gradient(35deg, #f1e767 0%, #feb645 100%); }
+  .flash p {
+    margin: 0; }
 
 
+.inner {
+  max-width: 900px;
+  margin: 0 auto; }
+  @media all and (max-width: 900px) {
+    .inner {
+      padding: 2rem; } }
