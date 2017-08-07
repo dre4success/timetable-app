@@ -12,6 +12,7 @@ const express 			= require('express'),
 	  routes        	= require('./routes/index'),
 	  pug           	= require('pug'),
 	  errorHandlers 	= require('./handlers/errorHandlers'),
+	  help              = require('./help'),
 	  app           	= express();
 
 	  require('./handlers/passport');
@@ -54,6 +55,7 @@ const express 			= require('express'),
 
 	   // pass variables to template and all requests
 	   app.use((req, res, next) => {
+	   	res.locals.h = help;
 	   	res.locals.flashes = req.flash();
 	   	res.locals.user = req.user || null;
 	   	next();
