@@ -18,10 +18,10 @@ const courseSchema = new mongoose.Schema({
 	}
 })
 
-courseSchema.statics.getCourseByday = function() {
+courseSchema.statics.getCourse = function() {
 	return this.aggregate([
 		{ $unwind: '$days'},
-		{ $group: {_id: '$days'}}
+		{ $group: {_id: '$days', count: { $sum: 1} }}
 
 	]) 
 }
