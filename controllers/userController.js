@@ -29,14 +29,7 @@ exports.validateRegister = (req, res, next) => {
 
 		return; // stop the function from running
 	}
-	next(); // there were no errors
-	/*req.getValidationResult()
-		.then((err) => {
-			if(err) {
-				req.flash('error', (err => err.msg))
-				res.render('register', { title: 'Register', body: req.body, flashes: req.flash()})
-			}
-		})*/
+	next();
 };
 
 exports.register = async (req, res, next) => {
