@@ -1,19 +1,20 @@
 mixin courseForm(course = {})
-	form(action="/add" method="POST" class="card")
+	form(action=`/add/${course._id || ''}` method="POST" class="card")
 		label(for="course") Course Name
-		input(type="text" name="courseName" id="course")
+		input(type="text" name="courseName" id="course" value=course.courseName)
 		- const numbers = [8,9,10,11,12,13,14,15,16]
 			label(for="") Select Time
 			select(name="time")
-				option() time
+				option()=course.time
 				each num in numbers
 					option(value=num) #{num}
 		- const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+		- const da = course.days || []
 		ul.tags
 			each day in days
 				.tag.tag__choice
 					input(type="checkbox" id=day value=day
-					name="days")
+					name="days" checked=(da.includes(day)))
 					label(for=day) #{day}
 		
 		input(type='submit' value="Save")

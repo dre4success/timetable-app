@@ -1,0 +1,15 @@
+mixin courseCard(cour = {})
+	.timetable
+		.timetable__hero
+			.timetable__actions
+				if user
+					.timetable__action.timetable__action--edit
+						a(href=`/view/${cour._id}/edit`)
+							!= h.icon('pencil')
+						a(href=`/view/${cour._id}/delete`)
+							!= h.icon('bin')
+
+			.title
+				p #{cour.courseName}
+		.timetable__details
+			p  lecture time #{cour.time}:00hrs
