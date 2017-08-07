@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
 	margin: 0;
 	padding: 0;
@@ -20,9 +21,9 @@ a { text-decoration: none; }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 5rem;
+  font-size: 3rem;
   font-family: 'Panama';
-  font-weight: 600;
+  font-weight: 300;
   letter-spacing: -1px; }
 
 section {
@@ -83,15 +84,11 @@ section {
 	bottom: 10px;
 }
 input, textarea {
-  width:50%;
-  padding:10px;
-  border: 1px solid $grey;
-  &.input {
-    &--error {
-      border-color: red;
-    }
-  }
-}
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6e6e6; }
+  input.input--error, textarea.input--error {
+    border-color: red; }
 select {
  font-family: sans-serif;
   /* 1 */
@@ -326,3 +323,98 @@ table#tab td a:hover {
   @media all and (max-width: 900px) {
     .inner {
       padding: 2rem; } }
+
+.timetables {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.timetable {
+  background: white;
+  margin: 10px 0;
+  width: 20%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.05);
+}
+.timetable__hero {
+  position: relative;
+  padding: 0 10px 0 10px;
+  text-align: right;
+}
+.title {
+  word-wrap: break-word;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.1;
+  transform: skew(0, -3deg);
+}
+.time__details {
+  padding: 2rem;
+
+}
+.time__details p {
+  line-height: 1.2;
+  margin-bottom: 0
+}
+.timetable__actions {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.2);
+  margin-bottom: 50px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-around;
+}
+.timetable__action {
+  font-size: 10px;
+}
+.timetable__action svg {
+  width: 25px;
+  fill: black;
+}
+.timetable__action--edit a  {
+  border-bottom: 0;
+}
+
+.days {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  margin-bottom: 2rem;
+      flex-wrap: wrap; 
+}
+.day {
+  display: block;
+  margin-right: 1rem;
+}
+.day__link {
+   background: #3f6fb6;
+    color: #303030;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 10px;
+    clip-path: polygon(10px 0%, 100% 1%, 100% 100%, 10px 100%, 0% 50%);
+}
+.day__text {
+  padding: 1rem 1rem;
+  display: block;
+}
+.day__count {
+  padding: 1rem 1rem;
+  background: white;
+  border-left: 3px solid rgba(0, 0, 0, 0.1);
+  margin-right: -1px;
+  background-clip: padding-box;
+}
+.day__link--active {
+  background: grey
+}
+.day__link--active .day__text {
+  color: white;
+}
