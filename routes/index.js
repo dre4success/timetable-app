@@ -12,7 +12,7 @@ router.get('/add', authController.isLoggedIn, courseController.addCourse);
 router.post('/add', catchErrors(courseController.saveCourse));
 
 router.get('/view', catchErrors(courseController.viewCourse));
-router.get('/view/:day', catchErrors(courseController.viewCourse));
+router.get('/api/view', catchErrors(courseController.viewApi));
 
 router.get('/view/:id/edit', catchErrors(courseController.editCourse));
 router.post('/add/:id', catchErrors(courseController.updateCourse));
