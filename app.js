@@ -13,7 +13,9 @@ const express 			= require('express'),
 	  pug           	= require('pug'),
 	  errorHandlers 	= require('./handlers/errorHandlers'),
 	  help              = require('./help'),
-	  app           	= express();
+	  app           	= express(),
+	  http              = require('http').Server(app),
+	  io                = require('socket.io')(http);
 
 	  require('./handlers/passport');
 
