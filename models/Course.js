@@ -6,16 +6,16 @@ const courseSchema = new mongoose.Schema({
 		type: String,
 		required: 'Please enter course name'
 	},
-	time: {
-		type: Number,
-		required: "You must select time",
-		unique: true
-	},
-	days: [String],
-	date: {
-		type: Date,
-		default: Date.now
-	}
+	daytime: [{
+		time: {
+			type: String,
+			required: "You must enter a time"
+		},
+		day: {
+			type: String,
+			required: "You must enter a day"
+		}
+	}]	
 })
 
 courseSchema.statics.getCourse = function() {
