@@ -1,18 +1,19 @@
 extends layout
 
-include mixins/_courseCard
-
 block content
 	.inner
-		h2 #{day || 'Days'}
-		ul.days 
-			each da in days
-				li.day
-					a.day__link(href=`/view/${da._id}`
-					class=(da._id === day ? 'day__link--active' : ''))
-						span.day__text= da._id
-						span.day__count= da.count
-		.timetables
-			each cour in course
-				//- pre= JSON.stringify(cour, null, 2)
-				+courseCard(cour)
+		//- pre= JSON.stringify(course, null, 2)
+		table#tab
+			thead
+				th time
+				th Monday
+				th Tuesday
+				th Wednesday
+				th Thursday
+				th Friday
+				th Saturday
+			tbody
+
+			
+
+				
