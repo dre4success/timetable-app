@@ -10,23 +10,32 @@ exports.addCourse = (req, res) => {
 }
 
 exports.saveCourse = async (req, res) => {
-	const course = new Course(req.body);
+	const temp = {};
+	temp.courseName = req.body.courseName;
+	temp.daytime = [];
+	const times = req.body.daytime.time;
+	const days = req.body.daytime.day;
+	times.forEach((time, index) => {
+		temp.daytime.push({time, 'day': days[index]});
+	})
+	const course = new Course(temp);
 	await course.save()
+	console.log(temp);
 	req.flash('success', `Successfully added ${course.courseName} to timetable`)
 	res.redirect('/')
-	//res.send("IT works")
+
 }
 
 exports.viewCourse = async(req, res) => {
-	  const day = req.params.day;
-	  const daytimePromise = Course.getCourse()
-	  const coursePromise = Course.find({ days: day});
+ 
+	  res.render('view', {title: 'View Table'})
+	  
+}
 
-	  const [days, course] = await Promise.all([daytimePromise, coursePromise]);
-	  
-	  res.render('view', {title: 'View Table', days, day, course})
-	    
-	  
+exports.viewApi = async(req, res) => {
+
+	const course = await Course.find()
+	res.json(course)
 }
 exports.editCourse = async(req, res) => {
 	const course = await Course.findOne({_id: req.params.id});
