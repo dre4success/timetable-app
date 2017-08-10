@@ -8,7 +8,7 @@ exports.getHome = (req, res) => {
 exports.addCourse = (req, res) => {
 	res.render('addCourse', {title: 'Add Course'});
 }
-
+// io.on
 exports.saveCourse = async (req, res) => {
 	const temp = {};
 	temp.courseName = req.body.courseName;
@@ -20,7 +20,7 @@ exports.saveCourse = async (req, res) => {
 	})
 	const course = new Course(temp);
 	await course.save()
-	console.log(temp);
+	// console.log(temp);
 	req.flash('success', `Successfully added ${course.courseName} to timetable`)
 	res.redirect('/')
 
@@ -43,7 +43,15 @@ exports.editCourse = async(req, res) => {
 }  
 
 exports.updateCourse = async(req, res) => {
-	const course = await Course.findOneAndUpdate({ _id: req.params.id}, req.body, {
+	const update = {};
+	update.courseName = req.body.courseName;
+	update.daytime = [];
+	const times = req.body.daytime.time;
+	const days = req.body.daytime.day;
+	days.forEach((day, i) => {
+		update.daytime.push({'time':times[i], day})
+	})
+	const course = await Course.findOneAndUpdate({ _id: req.params.id}, update, {
 		new: true, // return the new store instead of the old one
 		runValidators: true
 	}).exec();
