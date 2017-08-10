@@ -9,13 +9,14 @@ const express 			= require('express'),
 	  promisify     	= require('es6-promisify'),
 	  flash             = require('connect-flash'),
 	  expressValidator	= require('express-validator'),
-	  routes        	= require('./routes/index'),
 	  pug           	= require('pug'),
 	  errorHandlers 	= require('./handlers/errorHandlers'),
 	  help              = require('./help'),
-	  app           	= express(),
+	  routes        	= require('./routes/index'),
+	    app           	= express(),
 	  http              = require('http').Server(app),
 	  io                = require('socket.io')(http);
+
 
 	  require('./handlers/passport');
 
