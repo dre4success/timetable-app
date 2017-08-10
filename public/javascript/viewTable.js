@@ -3,9 +3,7 @@ const table = fetch('/api/view')
 table
 	.then(data => data.json())
 	.then(data => {
-		console.log(data)
-		let th = Array.from(document.querySelectorAll('th'))
-		let td = document.createElement('td');
+		//console.log(data)
 		const timetable = {
 			
 			8: {
@@ -99,13 +97,40 @@ table
 			Object.keys(days).forEach((day) => {
 				const course = timetable[time][day];
 				const td = document.createElement('td');
-				td.innerHTML = `${course.courseName||""}`;
+				// td.innerHTML = `<a href="/view/${course._id || ""}/edit"> ${course.courseName||""} </a>`;
+				td.innerHTML = edit(course);
+				// document.write(`${}`)
 				tr.appendChild(td);
 			})
 			tbody.appendChild(tr);
 		})
-		console.log(timetable);
+		//console.log(td);
 	})
 	.catch((err) => {
 		console.log(err)
 	})
+
+	function edit (place) {
+						if (place._id) {
+		const button = 	`<div class="dropdown">
+						<button class="dropbtn"> ${place.courseName || ''} </button>
+						<div class="dropdown-content">
+						<a href="/view/${place._id}/edit">Edit</a>
+						<a href="/view/${place._id}/delete">Delete</a>
+						</div>
+						</div>
+						`;
+				return button;
+			}
+			else {
+				const b = `<div class="dropdown">
+						<button class="dropbtn"> ${place.courseName || ''} </button>
+						<div class="dropdown-content">
+						<a href="#">Edit</a>
+						<a href="#">Delete</a>
+						</div>
+						</div>
+						`;
+					return b
+			}
+	}
