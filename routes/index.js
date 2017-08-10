@@ -14,10 +14,10 @@ router.post('/add', catchErrors(courseController.saveCourse));
 router.get('/view', catchErrors(courseController.viewCourse));
 router.get('/api/view', catchErrors(courseController.viewApi));
 
-router.get('/view/:id/edit', catchErrors(courseController.editCourse));
+router.get('/view/:id/edit', authController.isLoggedIn, catchErrors(courseController.editCourse));
 router.post('/add/:id', catchErrors(courseController.updateCourse));
 
-router.get('/view/:id/delete', catchErrors(courseController.deleteCourse));
+router.get('/view/:id/delete', authController.isLoggedIn, catchErrors(courseController.deleteCourse));
 
 
 router.get('/register', userController.registerForm);
