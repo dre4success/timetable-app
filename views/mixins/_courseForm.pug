@@ -6,9 +6,9 @@ mixin courseForm(course = {})
 		input(type="text" name="courseName" id="course" value=course.courseName)
 		#dynamicForm
 			label(for="time") Enter Time
-			input(type="number" name="daytime[time]" min="8" max="16" placeholder="must be between 8 and 16")
+			input(type="number" name="daytime[time]" min="8" max="16" placeholder="must be between 8 and 16" required)
 			label(for="day") Enter Day
-			input(type="text" name="daytime[day]" placeholder="Between Monday and Saturday" required)
+			input(type="text" name="daytime[day]" placeholder="Between Monday and Saturday")
 		label()
 		input(type="button" value="Add another time and day" onclick="addInput('dynamicForm')")
 		input(type="submit" value="Save")
