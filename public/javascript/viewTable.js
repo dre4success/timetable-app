@@ -97,14 +97,12 @@ table
 			Object.keys(days).forEach((day) => {
 				const course = timetable[time][day];
 				const td = document.createElement('td');
-				// td.innerHTML = `<a href="/view/${course._id || ""}/edit"> ${course.courseName||""} </a>`;
 				td.innerHTML = edit(course);
-				// document.write(`${}`)
 				tr.appendChild(td);
 			})
 			tbody.appendChild(tr);
 		})
-		//console.log(td);
+
 	})
 	.catch((err) => {
 		console.log(err)
@@ -134,3 +132,8 @@ table
 					return b
 			}
 	}
+
+	const socket = io();
+	socket.on('update', (course) => {
+		timetable(course);
+	})
