@@ -17,7 +17,7 @@ const express 			= require('express'),
 	  http              = require('http').Server(app),
 	  io                = require('socket.io')(http);
 
-
+	  // require('./controllers/courseController')(io);
 	  require('./handlers/passport');
 
 	  // view engine setup
@@ -73,5 +73,6 @@ const express 			= require('express'),
 	    app.use(errorHandlers.flashValidationErrors);
 
 
-	 module.exports = app;
+	 // module.exports = app;
+	 module.exports = http;
 
