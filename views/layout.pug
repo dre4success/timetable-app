@@ -3,6 +3,8 @@ html
   head
     title= `${title}`
     link(rel='stylesheet', type='text/css', href='/styles/styles.css')
+    link(rel="shortcut icon" type="image/png" href="/icons/timetable.png")
+    //- meta(name="viewport" content="width=device-width, initial-scale=1")
   body
     section
       .mast
@@ -42,5 +44,6 @@ html
 
       block scripts
         script(src="/javascript/form.js")
+        script(src="/socket.io/socket.io.js")
         script(src="/javascript/viewTable.js")
         
