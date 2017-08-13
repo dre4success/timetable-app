@@ -21,8 +21,8 @@ mongoose.connection.on('error', (err) => {
 require('./models/Course');
 require('./models/User');
 
-const app = require('./app');
+const http  = require('./app');
 
-app.listen(8080, () => {
+http.listen(8080, () => {
 	console.log("Server Started...")
 })
